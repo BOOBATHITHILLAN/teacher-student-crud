@@ -22,7 +22,7 @@ function Createteacher({ teacher, addTeacher, edittea, setEdittea }) {
   return (
     <div className="container">
       <div className="row">
-        <div className="col">
+        <div className="col table-responsive">
           <div className="bg-primary form-control">
             <p className=" text-white d-inline-block col-10">Teacher's List</p>{" "}
             <Link to="/Teacher/Add" className=" text-end col-2 text-white">

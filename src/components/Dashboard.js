@@ -2,7 +2,7 @@ function Dashboard({ student }) {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-lg-12 col-sm-12 d-flux text-center">
+        <div className="col-lg-12 col-sm-12 d-flux text-center table-responsive">
           <div>
             <p className="font-weight-bolder">
               Welcome to SB Admin School <sup>2</sup>

@@ -25,8 +25,8 @@ function Createstudent({student,addStudent,editstu,setEditstu}) {
   return (
     <div className="container">
       <div className="row">
-        <div className="col">
-          <div className="bg-primary form-control">
+        <div className="col table-responsive">
+          <div className="bg-primary form-control ">
             <p className=" text-white d-inline-block col-10">Student's List</p>{" "}
             <Link to="/Student/Add" className=" text-end col-2 text-white">
               Add
