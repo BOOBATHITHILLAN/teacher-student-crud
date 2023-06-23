@@ -39,7 +39,7 @@ function Createstudent({student,addStudent,editstu,setEditstu}) {
                 <th>Id</th>
                 <th>Name</th>
                 <th>Father Name</th>
-                <th>class</th>
+                <th>Grade</th>
                 <th>Address</th>
                 <th>Teacher</th>
                 <th>Edit & Update</th>
