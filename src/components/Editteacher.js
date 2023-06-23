@@ -1,25 +1,21 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { Link } from "react-router-dom";
 
-export function Editteacher({ teacher, addTeacher, edittea, setEdittea }) {
+ function Editteacher({ teacher, addTeacher, edittea, setEdittea }) {
 
-  let editTeacher = teacher.find(te => te.id === edittea[0].id)
+ 
 
-  const [name, setName] = useState(editTeacher.name);
+  const [name, setName] = useState(edittea[0].name);
 
-  const [profession, setProfession] = useState(editTeacher.master);
+  const [profession, setProfession] = useState(edittea[0].master);
 
-  const [address, setAddress] = useState(editTeacher.address);
+  const [address, setAddress] = useState(edittea[0].address);
 
-  const [reset, setReset] = useState(false)
+  
 
+  
 
-
-
-
-
-
-
+ 
 
   function EditTeacher(name, profession, address, id) {
 
@@ -37,17 +33,16 @@ export function Editteacher({ teacher, addTeacher, edittea, setEdittea }) {
         return te
       }
     })
-    addTeacher(Teacher)
-
-    reset ? setReset(false) : setReset(true);
-
-
+    addTeacher(Teacher)   
+    
   }
+
+
 
 
   return (
     <>
-      <h1 className="form-control bg-primary text-white">Add Teacher</h1>
+      <h1 className="form-control bg-primary text-white">Edit Teacher</h1>
       <form onSubmit={EditTeacher}>
         <div className="mb-3 m-3 text-start">
           <label htmlFor="name" className="form-label">
@@ -89,7 +84,7 @@ export function Editteacher({ teacher, addTeacher, edittea, setEdittea }) {
             }} />
         </div>
         <Link to="/Teacher">
-          <button type="submit" className="btn btn-primary m-2 bg-danger">
+          <button type="submit" className="btn btn-primary m-2 bg-danger" onClick={()=>setEdittea([])}>
             Cancel
           </button>
         </Link>
@@ -102,8 +97,17 @@ export function Editteacher({ teacher, addTeacher, edittea, setEdittea }) {
             Save
           </button>
         </Link>
+        <Link to="/Teacher">
+          <button
+            type="submit"
+            className="btn btn-primary m-2"  onClick={()=>setEdittea([])}        
+          >
+            Back
+          </button>
+        </Link>
       </form>
     </>
   );
 
 }
+export default Editteacher

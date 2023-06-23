@@ -1,26 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Createteacher({ teacher, addTeacher,edittea,setEdittea }) {
-  function Editteacher(id,name,master,address) {
-    setEdittea([...edittea,{
-      id:id,
-      name:name,
-      master:master,
-      address:address
+function Createteacher({ teacher, addTeacher, edittea, setEdittea }) {
+  function Editteacher(id, name, master, address) {
+    setEdittea([{
+      id: id,
+      name: name,
+      master: master,
+      address: address
 
     }])
   }
 
-  function Deleteteacher(index) {
+  function Deleteteacher(id) {
+   
     addTeacher(
-      [...teacher.filter((te) => {
-        if (te.id !== index) {
-          return true;
-        } else {
-          return false;
-        }
-      })]
+      teacher.filter((te) =>te.id !== id)
     );
   }
 
@@ -58,12 +53,12 @@ function Createteacher({ teacher, addTeacher,edittea,setEdittea }) {
                         <Link to="/Teacher/Edit">
                           <i
                             className="fa-solid fa-pen-nib"
-                            onClick={() => Editteacher(te.id,te.name,te.master,te.address)}
+                            onClick={() => Editteacher(te.id, te.name, te.master, te.address)}
                           ></i>
                         </Link>
                       </td>
 
-                      <td onClick={() => Deleteteacher(index + 1)}>
+                      <td onClick={() => Deleteteacher(te.id)}>
                         <Link>
                           <i className="fa-solid fa-trash-can"></i>
                         </Link>
@@ -73,7 +68,7 @@ function Createteacher({ teacher, addTeacher,edittea,setEdittea }) {
                 })
               ) : (
                 <tr>
-                  <td>Data Not available</td>
+                  <td colSpan={5}>Data Not available</td>
                 </tr>
               )}
             </tbody>

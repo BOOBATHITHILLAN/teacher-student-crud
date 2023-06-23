@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export function Addteacher({ teacher, addTeacher }) {
+ function Addteacher({ teacher, addTeacher }) {
   const [name, setName] = useState(null);
 
   const [profession, setProfession] = useState(null);
@@ -100,3 +100,4 @@ export function Addteacher({ teacher, addTeacher }) {
     </>
   );
 }
+export default Addteacher

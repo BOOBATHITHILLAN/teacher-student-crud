@@ -10,20 +10,25 @@ function Dashboard({ student }) {
           </div>
           <table className="table table-secondary table-striped">
             <thead>
-            <tr>
-              <th className="bg-primary bg-gradiant  text-white">Student</th>
-              <th className="bg-primary bg-gradiant text-white">Teacher</th>
-            </tr>
+              <tr>
+                <th className="bg-primary bg-gradiant  text-white">Student</th>
+                <th className="bg-primary bg-gradiant text-white">Teacher</th>
+              </tr>
             </thead>
             <tbody>
-            {student.map((st, index) => {
-              return (
-                <tr key={index}>
-                  <td className="text-black fw-bold">{st.name}</td>
-                  <td className="text-black fw-bold">{st.teacher}</td>
-                </tr>
-              );
-            })}
+              {student.length > 0 ? (student.map((st, index) => {
+                return (
+                  <tr key={index}>
+                    <td className="text-black fw-bold">{st.name}</td>
+                    <td className="text-black fw-bold">{st.teacher}</td>
+                  </tr>
+                );
+              })) :
+                (
+                  <tr>
+                    <td colSpan={2}>Data Not available</td>
+                  </tr>
+                )}
             </tbody>
           </table>
         </div>
