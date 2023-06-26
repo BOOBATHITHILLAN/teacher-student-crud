@@ -39,7 +39,7 @@ function AddStudent({ student, addStudent, teacher }) {
                 address: address,
                 teacher: Teacher
             },])
-            console.log(student)
+           
         }
     }
 
