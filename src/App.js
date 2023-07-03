@@ -1,5 +1,6 @@
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios'
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Logoutmodel from "./components/Logoutmodel";
@@ -16,12 +17,30 @@ import Editstudent from "./components/Editstudent";
 
 
 
-
 function App() {
 
   const [edittea, setEdittea] = useState([])
 
   const[editstu,setEditstu]=useState([])
+
+  const [student, addStudent] = useState([])
+ 
+
+  const [teacher, addTeacher] = useState([])
+ 
+
+  useEffect(()=>{
+  
+
+    axios
+        .get('http://localhost:3000/Student')
+        .then(response=>addStudent(response.data))
+    axios
+        .get('http://localhost:3000/Teacher')
+        .then(response=>addTeacher(response.data))
+  },[])
+
+
 
   const [style, setStyle] = useState(
     "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
@@ -49,26 +68,6 @@ function App() {
       setStyle("navbar-nav bg-gradient-primary sidebar sidebar-dark accordion");
     }
   };
-
-  const [student, addStudent] = useState([
-    {
-      id: 1,
-      name: "Boobathi",
-      fathername: "Thillan",
-      class:"I",
-      address: "Dindigul",
-      teacher: "Balu",
-    },
-  ]);
-
-  const [teacher, addTeacher] = useState([
-    {
-      id: 1,
-      name: "Balu",
-      master: "Tamil",
-      address: "Chinnalapatti",
-    },
-  ]);
 
 
 

@@ -23,7 +23,7 @@ function Editstudent({student, addStudent, editstu, setEditstu,teacher}) {
           if (st.id === id) {
             return (
               {
-                id: student.length + 1,
+                id: id,
                 name: name,
                 fathername: fathername,
                 class: class1,

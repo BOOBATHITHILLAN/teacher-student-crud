@@ -1,0 +1,23 @@
+{
+    "student": [
+        {
+            "id": 1,
+            "name": "Boobathi",
+            "fathername": "Thillan",
+            "class": "I",
+            "address": "Dindigul",
+            "teacher": "Balu"
+          }
+     
+    ],
+    "teacher":[
+
+        {
+            "id": 1,
+            "name": "Balu",
+            "master": "Tamil",
+            "address": "Chinnalapatti"
+          }
+    ]
+  }
+  
