@@ -130,7 +130,7 @@ function Editstudent({student, addStudent, editstu, setEditstu,teacher}) {
                         Cancel
                     </button>
                 </Link>
-                <Link>
+                <Link to="/Student">
                     <button
                         type="submit"
                         className="btn btn-primary m-2"
