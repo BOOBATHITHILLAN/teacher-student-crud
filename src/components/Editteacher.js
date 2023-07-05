@@ -1,23 +1,17 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import Datacontext from "../context/Datacontext";
 
- function Editteacher() {
+function Editteacher() {
 
- const{teacher,addTeacher,edittea,setEdittea}=useContext(Datacontext)
+  const { teacher, addTeacher, edittea, setEdittea } = useContext(Datacontext)
 
   const [name, setName] = useState(edittea[0].name);
 
   const [profession, setProfession] = useState(edittea[0].master);
 
   const [address, setAddress] = useState(edittea[0].address);
-
-  
-
-  
-
- 
 
   function EditTeacher(name, profession, address, id) {
 
@@ -35,8 +29,8 @@ import Datacontext from "../context/Datacontext";
         return te
       }
     })
-    addTeacher(Teacher)   
-    
+    addTeacher(Teacher)
+
   }
 
 
@@ -86,7 +80,7 @@ import Datacontext from "../context/Datacontext";
             }} />
         </div>
         <Link to="/Teacher">
-          <button type="submit" className="btn btn-primary m-2 bg-danger" onClick={()=>setEdittea([])}>
+          <button type="submit" className="btn btn-primary m-2 bg-danger" onClick={() => setEdittea([])}>
             Cancel
           </button>
         </Link>
@@ -102,7 +96,7 @@ import Datacontext from "../context/Datacontext";
         <Link to="/Teacher">
           <button
             type="submit"
-            className="btn btn-primary m-2"  onClick={()=>setEdittea([])}        
+            className="btn btn-primary m-2" onClick={() => setEdittea([])}
           >
             Back
           </button>

@@ -4,27 +4,27 @@ import { Link } from "react-router-dom";
 
 function Createstudent() {
 
-  const{student,addStudent,setEditstu}=useContext(Datacontext)
+  const { student, addStudent, setEditstu } = useContext(Datacontext)
 
 
-  function Editstudent(id,name,fathername,class1,address,teacher) {
+  function Editstudent(id, name, fathername, class1, address, teacher) {
     setEditstu([{
       id: id,
       name: name,
       fathername: fathername,
-      class:class1,
+      class: class1,
       address: address,
       teacher: teacher,
     }])
   }
 
- 
- 
+
+
   function Deletestudent(id) {
 
-   
+
     addStudent(
-      student.filter((st) =>st.id !== id)
+      student.filter((st) => st.id !== id)
     );
   }
 
@@ -68,7 +68,7 @@ function Createstudent() {
                         <Link to="/Student/Edit">
                           <i
                             className="fa-solid fa-pen-nib"
-                            onClick={() => Editstudent(st.id,st.name,st.fathername,st.class,st.address,st.teacher)}
+                            onClick={() => Editstudent(st.id, st.name, st.fathername, st.class, st.address, st.teacher)}
                           ></i>
                         </Link>
                       </td>
