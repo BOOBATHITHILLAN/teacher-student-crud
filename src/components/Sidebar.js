@@ -1,10 +1,12 @@
 import React from "react";
 import Navpagecollapse from "./Navpagecollapse";
+import { useContext } from "react";
+import Datacontext from "../context/Datacontext";
 
 
-function Sidebar({ style, Changestyle,Link }) {
+function Sidebar({Link }) {
 
-
+  const{style,Changestyle}= useContext(Datacontext)
 
   return (
     <div className="sidebar-left">

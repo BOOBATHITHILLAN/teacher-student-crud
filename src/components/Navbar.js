@@ -1,7 +1,11 @@
 import React from "react";
+import { useContext } from "react";
+import Datacontext from "../context/Datacontext";
 
 
-function Navbar({Changestyle1}) {
+function Navbar() {
+
+  const {Changestyle1}=useContext(Datacontext)
 
  
  

@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import Datacontext from "../context/Datacontext";
 
-function Createteacher({ teacher, addTeacher, edittea, setEdittea }) {
+function Createteacher() {
+
+  const{teacher,addTeacher,setEdittea}=useContext(Datacontext);
+
   function Editteacher(id, name, master, address) {
     setEdittea([{
       id: id,

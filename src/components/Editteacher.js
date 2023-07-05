@@ -1,9 +1,11 @@
 import React, {  useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import Datacontext from "../context/Datacontext";
 
- function Editteacher({ teacher, addTeacher, edittea, setEdittea }) {
+ function Editteacher() {
 
- 
+ const{teacher,addTeacher,edittea,setEdittea}=useContext(Datacontext)
 
   const [name, setName] = useState(edittea[0].name);
 

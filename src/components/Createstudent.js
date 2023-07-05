@@ -1,9 +1,12 @@
-
+import { useContext } from "react";
+import Datacontext from "../context/Datacontext";
 import { Link } from "react-router-dom";
 
-function Createstudent({student,addStudent,editstu,setEditstu}) {
+function Createstudent() {
 
-  
+  const{student,addStudent,setEditstu}=useContext(Datacontext)
+
+
   function Editstudent(id,name,fathername,class1,address,teacher) {
     setEditstu([{
       id: id,
@@ -15,7 +18,10 @@ function Createstudent({student,addStudent,editstu,setEditstu}) {
     }])
   }
 
+ 
+ 
   function Deletestudent(id) {
+
    
     addStudent(
       student.filter((st) =>st.id !== id)

@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import Datacontext from "../context/Datacontext";
 
- function Addteacher({ teacher, addTeacher }) {
+ function Addteacher() {
+
+  const{teacher,addTeacher}=useContext(Datacontext);
+
   const [name, setName] = useState(null);
 
   const [profession, setProfession] = useState(null);

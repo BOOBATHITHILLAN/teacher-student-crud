@@ -1,5 +1,4 @@
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Logoutmodel from "./components/Logoutmodel";
@@ -9,157 +8,94 @@ import Dashboard from "./components/Dashboard";
 import Createteacher from "./components/Createteacher";
 import Createstudent from "./components/Createstudent";
 import AddStudent from "./components/Addstudent";
-import  Addteacher  from "./components/Addteacher";
-import Editteacher  from "./components/Editteacher";
+import Addteacher from "./components/Addteacher";
+import Editteacher from "./components/Editteacher";
 import Editstudent from "./components/Editstudent";
+import { DataProvider } from "./context/Datacontext";
 
 
 
 
 function App() {
 
-  const [edittea, setEdittea] = useState([])
-
-  const[editstu,setEditstu]=useState([])
-
-  const [student, addStudent] = useState([
-    {
-      id: 1,
-      name: "Boobathi",
-      fathername: "Thillan",
-      class: "I",
-      address: "Dindigul",
-      teacher: "Balu",
-    },
-  ]);
-
-  const [teacher, addTeacher] = useState([
-    {
-      id: 1,
-      name: "Balu",
-      master: "Tamil",
-      address: "Chinnalapatti",
-    },
-  ]);
-
-
-
-  const [style, setStyle] = useState(
-    "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-  );
-
-  const Changestyle = () => {
-    if (
-      style === "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-    ) {
-      setStyle(
-        "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled"
-      );
-    } else {
-      setStyle("navbar-nav bg-gradient-primary sidebar sidebar-dark accordion");
-    }
-  };
-  const Changestyle1 = () => {
-    if (
-      style === "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-    ) {
-      setStyle(
-        "navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled1"
-      );
-    } else {
-      setStyle("navbar-nav bg-gradient-primary sidebar sidebar-dark accordion");
-    }
-  };
-
-
-
-
   return (
     <div id="page-top">
-      {/* <!-- Page Wrapper --> */}
-      <Router>
-        <div id="wrapper" className="">
-          <Sidebar
-            style={style}
-            Changestyle={Changestyle}
-            Link={Link}
+      <DataProvider>
+        {/* <!-- Page Wrapper --> */}
+        <Router>
+          <div id="wrapper" className="">
+            <Sidebar
+              Link={Link}
+            />
 
-          />
-
-          {/* <!-- Content Wrapper --> */}
-          <div id="content-wrapper" className="d-flex flex-column">
-            {/* <!-- Main Content -->*/}
-            <div id="content" className="#0dcaf0 text-center">
+            {/* <!-- Content Wrapper --> */}
+            <div id="content-wrapper" className="d-flex flex-column">
+              {/* <!-- Main Content -->*/}
+              <div id="content" className="#0dcaf0 text-center">
 
 
-              <Navbar Changestyle1={Changestyle1} />
+                <Navbar />
 
 
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <Dashboard
-                      student={student}
-                      addStudent={addStudent}
-                      teacher={teacher}
-                      addTeacher={addTeacher}
-                    />
-                  }
-                />
-                 <Route
-                  path="/Student"
-                  element={
-                    <Createstudent student={student} addStudent={addStudent} editstu={editstu} setEditstu={setEditstu} />
-                  }
-                />
-                <Route
-                  path="/Student/Add"
-                  element={
-                    <AddStudent student={student} addStudent={addStudent}  teacher={teacher} />
-                  }
-                />
-                 <Route
-                  path="/Student/Edit"
-                  element={
-                    <Editstudent student={student} addStudent={addStudent} editstu={editstu} setEditstu={setEditstu} teacher={teacher}/>
-                  }
-                />
+                <Routes>
+                  <Route
+                    path="/"
+                    element={
+                      <Dashboard />
+                    }
+                  />
+                  <Route
+                    path="/Student"
+                    element={
+                      <Createstudent />
+                    }
+                  />
+                  <Route
+                    path="/Student/Add"
+                    element={
+                      <AddStudent />
+                    }
+                  />
+                  <Route
+                    path="/Student/Edit"
+                    element={
+                      <Editstudent />
+                    }
+                  />
 
-                
-                <Route
-                  path="/Teacher"
-                  element={
-                    <Createteacher teacher={teacher} addTeacher={addTeacher} edittea={edittea} setEdittea={setEdittea} />
-                  }
-                />
-                <Route path="/Student" element={<Createstudent />} />
 
-                <Route
-                  path="/Teacher/Add"
-                  element={
-                    <Addteacher teacher={teacher} addTeacher={addTeacher} />
-                  }
-                />
-                <Route
-                  path="/Teacher/Edit"
-                  element={
-                    <Editteacher teacher={teacher} addTeacher={addTeacher} edittea={edittea} setEdittea={setEdittea} />
-                  }
-                />               
+                  <Route
+                    path="/Teacher"
+                    element={
+                      <Createteacher />
+                    }
+                  />
+                  <Route
+                    path="/Teacher/Add"
+                    element={
+                      <Addteacher />
+                    }
+                  />
+                  <Route
+                    path="/Teacher/Edit"
+                    element={
+                      <Editteacher />
+                    }
+                  />
 
-               
-                
-               
-              </Routes>
+
+
+
+                </Routes>
+              </div>
+              {/* <!-- Footer Content -->*/}
+              <Footer />
             </div>
-            {/* <!-- Footer Content -->*/}
-            <Footer />
           </div>
-        </div>
-      </Router>
+        </Router>
 
-      <Logoutmodel />
+        <Logoutmodel />
+      </DataProvider>
     </div>
   );
 }
